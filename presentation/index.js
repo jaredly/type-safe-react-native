@@ -69,7 +69,7 @@ theme.screen.global.body.color = colors.primary
 export default class Presentation extends React.Component {
   render() {
     const nodes = []
-    convert.collectSlideNodes(require('../meetup.nm.json'), [], nodes)
+    convert.collectSlideNodes(require('../talk.nm.json'), [], nodes)
     const slides = nodes.map(convert.nodeToSlide)
     console.log('slides', slides)
     return (
