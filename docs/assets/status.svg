@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="208px" height="103px" viewBox="0 0 208 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>status</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3">
+            <circle id="Oval-2" stroke="#979797" fill="#FF3B00" cx="27" cy="60" r="20"></circle>
+            <text id="Heavy-churn" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="4" y="92">Heavy churn</tspan>
+            </text>
+            <text id="Build-with-caution" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="89.76" y="92">Build with </tspan>
+                <tspan x="93.904" y="102">caution</tspan>
+            </text>
+            <text id="Build-with-confidenc" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="170.26" y="92">Build with </tspan>
+                <tspan x="168.104" y="102">confidence</tspan>
+            </text>
+            <circle id="Oval-2-Copy" stroke="#979797" fill="#00FF07" cx="187" cy="60" r="20"></circle>
+            <circle id="Oval-2-Copy-2" stroke="#979797" fill="#FFED00" cx="107" cy="60" r="20"></circle>
+            <polygon id="Triangle" fill="#979797" transform="translate(107.000000, 7.500000) scale(1, -1) translate(-107.000000, -7.500000) " points="107 0 116 15 98 15"></polygon>
+            <text id="9-months-ago" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="0" y="33">9 months ago</tspan>
+            </text>
+            <text id="now" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="99.7490837" y="32">now</tspan>
+            </text>
+            <text id="in-~2-years?" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="165.428" y="32">in ~2 years?</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

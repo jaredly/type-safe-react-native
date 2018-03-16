@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="30px" viewBox="0 0 200 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>distance_from_js</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(0.000000, -1.000000)">
+            <path d="M0.5,10.5 L199.5,10.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+            <text id="Elm" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="2" y="8">Elm</tspan>
+            </text>
+            <text id="ClojureScript" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="43" y="18">ClojureScript</tspan>
+            </text>
+            <text id="Reason" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="102" y="8">Reason</tspan>
+            </text>
+            <text id="TypeScript" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="160" y="18">TypeScript</tspan>
+            </text>
+            <text id="Flow" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="180" y="8">Flow</tspan>
+            </text>
+            <text id="close" font-family="HelveticaNeue-BoldItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="bold" fill="#5D5D5D">
+                <tspan x="180" y="30">close</tspan>
+            </text>
+            <text id="far" font-family="HelveticaNeue-BoldItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="bold" fill="#5D5D5D">
+                <tspan x="0" y="30">far</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

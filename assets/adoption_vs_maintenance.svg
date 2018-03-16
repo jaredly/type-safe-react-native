@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="217px" height="230px" viewBox="0 0 217 230" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>adoption_vs_maintenance</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(-2.000000, 0.000000)">
+            <rect id="Rectangle" stroke="#979797" stroke-width="2" x="20" y="1" width="198" height="198"></rect>
+            <circle id="Oval" stroke="#979797" stroke-width="2" fill="#D8D8D8" cx="208" cy="184" r="2"></circle>
+            <text id="Ease-of-Adoption" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" fill="#5D5D5D">
+                <tspan x="74" y="211">Ease of Adoption</tspan>
+            </text>
+            <text id="Ease-of-Maintenance" transform="translate(7.500000, 103.000000) rotate(-90.000000) translate(-7.500000, -103.000000) " font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" fill="#5D5D5D">
+                <tspan x="-49" y="107">Ease of Maintenance</tspan>
+            </text>
+            <text id="JavaScript" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" fill="#5D5D5D">
+                <tspan x="144" y="185">JavaScript</tspan>
+            </text>
+            <circle id="Oval-Copy" stroke="#979797" stroke-width="2" fill="#D8D8D8" cx="193" cy="161" r="2"></circle>
+            <text id="ES6+" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" fill="#5D5D5D">
+                <tspan x="156" y="162">ES6+</tspan>
+            </text>
+            <circle id="Oval-Copy-6" stroke="#979797" stroke-width="2" fill="#D8D8D8" cx="186" cy="134" r="2"></circle>
+            <text id="Flow/TS" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" fill="#5D5D5D">
+                <tspan x="134" y="137">Flow/TS</tspan>
+            </text>
+            <circle id="Oval-Copy-3" stroke="#979797" stroke-width="2" fill="#D8D8D8" cx="136" cy="42" r="2"></circle>
+            <text id="Elm" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" fill="#5D5D5D">
+                <tspan x="109" y="43">Elm</tspan>
+            </text>
+            <circle id="Oval-Copy-4" stroke="#979797" stroke-width="2" fill="#D8D8D8" cx="178" cy="76" r="2"></circle>
+            <text id="Reason" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" fill="#5D5D5D">
+                <tspan x="132" y="77">Reason</tspan>
+            </text>
+            <circle id="Oval-Copy-2" stroke="#979797" stroke-width="2" fill="#D8D8D8" cx="55" cy="75" r="2"></circle>
+            <circle id="Oval-Copy-5" stroke="#979797" stroke-width="2" fill="#D8D8D8" cx="72" cy="75" r="2"></circle>
+            <text id="Haskell" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" fill="#5D5D5D">
+                <tspan x="27" y="69">Haskell</tspan>
+            </text>
+            <text id="OCaml-Copy" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" fill="#5D5D5D">
+                <tspan x="68" y="89">OCaml</tspan>
+            </text>
+            <text id="An-artist's-dramatiz" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="46" y="228">An artist's dramatization of the state of things</tspan>
+            </text>
+            <text id="low" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="21" y="210">low</tspan>
+            </text>
+            <text id="high" font-family="HelveticaNeue-LightItalic, Helvetica Neue" font-size="8" font-style="italic" font-weight="300" fill="#5D5D5D">
+                <tspan x="202" y="209">high</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
