@@ -271,7 +271,7 @@ export const nodeToSlide = ({node, sectionTitles}) => {
   let titleText = null
   if (!node.content.startsWith('_ ') && node.content.trim() !== '_') {
     let {text, style} = getStyle(node.content)
-    let size = 1
+    let size = 2
     if (text.match(/^\{\d\}/)) {
       size = parseInt(text[1])
       text = text.slice(3).trim()
