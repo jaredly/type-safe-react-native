@@ -220,6 +220,14 @@ const childContent = node => {
         body = <Heading key={key} size={2} style={style} children={text} />
       } else if (hasTheme(node, 'header3')) {
         body = <Heading key={key} size={3} style={style} children={text} />
+      } else if (content.startsWith('```') && content.endsWith('```')) {
+        body = <CodePane
+          key={key}
+          style={{}}
+          source={content.slice(3, -3).trim()}
+          lang='mllike'
+        />
+
       } else {
         body = <Text key={key} lineHeight={style.lineHeight} style={style} children={text} />
       }
