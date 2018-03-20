@@ -208,7 +208,7 @@ const childContent = node => {
         height: size,
         width: size,
       }} />
-    } else if (content.trim() && !content.startsWith('_ ')) {
+    } else if (content.trim() && !content.match(/^_( |$)/)) {
       // console.log(content)
       let style = hidden ? {visibility: 'hidden'} : {}
       const res = getStyle(content)
@@ -233,15 +233,14 @@ const childContent = node => {
       }
     } else {
       const res = getStyle(content)
-      console.log('style', res.style)
       body = <Layout
         key={key}
-        style={[{flexDirection: 'column'}, res.style]}
+        style={[{flexDirection: 'column', ...(hidden ? {visibility: 'hidden'} : {})}, res.style]}
         children={node.children.map(childContent).reduce(flatten, [])}
       />
     }
     if (appear) {
-      return <Appear key={key} children={body} />
+      return <Appear key={key + 'appear'} children={body} />
     }
     return body
 };
