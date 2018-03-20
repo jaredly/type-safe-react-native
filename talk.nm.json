@@ -904,15 +904,91 @@
         {
           "_id": null,
           "created": 1521469621463,
-          "modified": 1521470745651,
+          "modified": 1521505003398,
           "completed": null,
           "parent": null,
           "trashed": null,
           "children": [
             {
               "_id": null,
+              "created": 1521505003398,
+              "modified": 1521505007639,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "{spacer: 64}",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
+            {
+              "_id": null,
+              "created": 1521504842598,
+              "modified": 1521504928371,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [
+                {
+                  "_id": null,
+                  "created": 1521504845382,
+                  "modified": 1521504853847,
+                  "completed": null,
+                  "parent": null,
+                  "trashed": null,
+                  "children": [],
+                  "type": "normal",
+                  "content": " | ReactJS | ReasonReact",
+                  "plugins": {},
+                  "types": {},
+                  "views": {},
+                  "_rev": null
+                },
+                {
+                  "_id": null,
+                  "created": 1521504853847,
+                  "modified": 1521504863270,
+                  "completed": null,
+                  "parent": null,
+                  "trashed": null,
+                  "children": [],
+                  "type": "normal",
+                  "content": "immutability | by convention | guaranteed",
+                  "plugins": {},
+                  "types": {},
+                  "views": {},
+                  "_rev": null
+                },
+                {
+                  "_id": null,
+                  "created": 1521504863271,
+                  "modified": 1521504881219,
+                  "completed": null,
+                  "parent": null,
+                  "trashed": null,
+                  "children": [],
+                  "type": "normal",
+                  "content": "types | propTypes/runtime | compile-time",
+                  "plugins": {},
+                  "types": {},
+                  "views": {},
+                  "_rev": null
+                }
+              ],
+              "type": "list",
+              "content": "!a {table}",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
+            {
+              "_id": null,
               "created": 1521470745651,
-              "modified": 1521470777126,
+              "modified": 1521505012078,
               "completed": null,
               "parent": null,
               "trashed": null,
@@ -965,7 +1041,11 @@
               ],
               "type": "list",
               "content": "_",
-              "plugins": {},
+              "plugins": {
+                "themes": {
+                  "disabled": true
+                }
+              },
               "types": {},
               "views": {},
               "_rev": null

@@ -147,7 +147,7 @@ const childContent = node => {
         {cite ? <Cite>{cite}</Cite> : null}
         </BlockQuote>
     } else if (node.type === 'list') {
-      if (node.content === '{table}') {
+      if (content === '{table}') {
         let children = node.children.filter(child => !isDisabled(child))
         body = <Table
         children={
