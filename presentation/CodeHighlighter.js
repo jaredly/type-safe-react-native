@@ -1,10 +1,13 @@
 
 import React, {Component} from 'react'
 
+const background = '#e1e1e1';
+const dx = 3;
+const dy = 7;
 const highlightStyle = `
-  background-color: white;
+  background-color: ${background};
   color: black;
-  box-shadow: 5px 5px 0px white, -5px -5px 0 white, 5px -5px 0 white, -5px 5px 0 white
+  box-shadow: ${dx}px ${dy}px 0px ${background}, -${dx}px -${dy}px 0 ${background}, ${dx}px -${dy}px 0 ${background}, -${dx}px ${dy}px 0 ${background}
 `
 
 const wrap = text => {
@@ -47,9 +50,28 @@ const format = (str) => {
   return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 };
 
+const cache = {}
+
+const hashCode = string => {
+    if (cache[string]) {
+      return cache[string]
+    }
+    let hash = 0;
+    if (string.length == 0) {
+        return hash;
+    }
+    for (let i = 0; i < string.length; i++) {
+        const char = string.charCodeAt(i);
+        hash = ((hash<<5)-hash)+char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    cache[string] = hash
+    return hash;
+}
+
 export default class CodeHighlighter extends Component {
   state = {
-    active: 0
+    active: this.getStorageItem() || 0
   }
 
   static contextTypes = {
@@ -59,11 +81,32 @@ export default class CodeHighlighter extends Component {
 
   componentDidMount() {
     document.addEventListener('keydown', this.onKeyDown);
+    window.addEventListener('storage', this.onStorage);
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.onKeyDown);
+    window.removeEventListener('storage', this.onStorage);
   }
+
+  onStorage = e => {
+    if (e.key === this.getStorageId()) {
+      this.setState({active: +e.newValue});
+    }
+  }
+
+  getStorageId() {
+    return '' + hashCode(this.props.source)
+    // return 'code-slide:' + this.props.slideIndex;
+  }
+
+  getStorageItem() {
+    return +localStorage.getItem(this.getStorageId());
+  }
+
+  setStorageItem(value) {
+    return localStorage.setItem(this.getStorageId(), '' + value);
+}
 
   isSlideActive() {
     return true
@@ -89,6 +132,7 @@ export default class CodeHighlighter extends Component {
     if (active !== null) {
       e.preventDefault();
       this.setState({active});
+      this.setStorageItem(active)
     }
 };
 
