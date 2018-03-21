@@ -25,6 +25,8 @@ import {
   TableHeaderItem,
   Text
 } from "spectacle";
+import CodeHighlighter from './CodeHighlighter'
+// const CodeHighlighter = CodePane
 
 const isDisabled = node => {
   return node.plugins && node.plugins.themes && node.plugins.themes.disabled;
@@ -127,35 +129,38 @@ const childContentText = content => {
 }
 
 const childContent = node => {
-    if (isDisabled(node)) return
-    if (node.type === 'note') return
-    let content = node.content
-    let appear = false
-    let hidden = false
-    if (content.match(/^\!a /))  {
-      content = content.slice(3)
-      appear = true
+  if (isDisabled(node)) return
+  if (node.type === 'note') return
+  let content = node.content
+  let appear = false
+  let hidden = false
+  if (content.match(/^\!a /)) {
+    content = content.slice(3)
+    if (content[0] === '\n') {
+      content = content.slice(1)
     }
-    if (content.match(/^\!h /))  {
-      content = content.slice(3)
-      hidden = true
-    }
+    appear = true
+  }
+  if (content.match(/^\!h /)) {
+    content = content.slice(3)
+    hidden = true
+  }
 
-    const key = Math.random().toString(16)
+  const key = Math.random().toString(16)
 
-    let body
-    if (node.type === 'quote') {
-      const {text, cite} = splitQuote(content)
-      body = <BlockQuote key={key} >
-        <Quote>{text}</Quote>
-        {cite ? <Cite>{cite}</Cite> : null}
-        </BlockQuote>
-    } else if (node.type === 'list') {
-      if (content === '{table}') {
-        let children = node.children.filter(child => !isDisabled(child))
-        let header = children[0].content.split('|')
-        let colHeaders = header[0].trim() === ''
-        body = <Table
+  let body
+  if (node.type === 'quote') {
+    const {text, cite} = splitQuote(content)
+    body = <BlockQuote key={key} >
+      <Quote>{text}</Quote>
+      {cite ? <Cite>{cite}</Cite> : null}
+    </BlockQuote>
+  } else if (node.type === 'list') {
+    if (content === '{table}') {
+      let children = node.children.filter(child => !isDisabled(child))
+      let header = children[0].content.split('|')
+      let colHeaders = header[0].trim() === ''
+      body = <Table
         children={
           [
             <TableRow>
@@ -164,103 +169,107 @@ const childContent = node => {
               })}
             </TableRow>
           ]
-          .concat(
-            children.slice(1).map(child =>
-              <TableRow
-                children={child.content.split('|').map((text, i) => <TableItem>{
-                  colHeaders && i === 0
-                  ? <strong>{text.trim()}</strong>
-                  : text.trim()
-                }</TableItem>)}
-              />
-            )
-          )}
-        />
-      } else {
-        body = <List
-          children={node.children.map(child => {
-            let content = child.content
-            let appear = false
-            if (content.match(/^\!a /))  {
-              content = content.slice(3)
-              appear = true
-            }
-            if (appear) {
-              return <Appear><ListItem>{content}</ListItem></Appear>
-            }
-            return <ListItem>{content}</ListItem>
-          })}
-        />
-      }
-    } else if (node.type === 'code') {
-      console.log(node)
-      let lang = node.types.code.language || 'mllike'
+            .concat(
+              children.slice(1).map(child =>
+                <TableRow
+                  children={child.content.split('|').map((text, i) => <TableItem>{
+                    colHeaders && i === 0
+                      ? <strong>{text.trim()}</strong>
+                      : text.trim()
+                  }</TableItem>)}
+                />
+              )
+            )}
+      />
+    } else {
+      body = <List
+        children={node.children.map(child => {
+          let content = child.content
+          let appear = false
+          if (content.match(/^\!a /)) {
+            content = content.slice(3)
+            appear = true
+          }
+          if (appear) {
+            return <Appear><ListItem>{content}</ListItem></Appear>
+          }
+          return <ListItem>{content}</ListItem>
+        })}
+      />
+    }
+  } else if (node.type === 'code') {
+    console.log(node)
+    let lang = node.types.code.language || 'mllike'
+    let style = {...codePaneStyle}
+    if (content.startsWith('#!{')) {
+      let lines = content.split('\n')
+      style = JSON.parse(lines[0].slice(2))
+      content = lines.slice(1).join('\n')
+    }
+    body = <CodeHighlighter
+      key={key}
+      style={style}
+      source={content}
+      lang={lang}
+    />
+  } else if (node.type !== 'normal') {
+    console.log('unexpected type', node.type)
+    body = null
+  } else if (content.trim().startsWith('{img} ')) {
+    const {text, style} = getStyle(content.slice('{img} '.length))
+    body = <Image key={key} style={style} width={style.width} height={style.height} src={'assets/' + text.trim()} />
+  } else if (content.trim().startsWith('{spacer:')) {
+    const size = parseInt(content.trim().slice('{spacer:'.length, -1))
+    body = <div key={key} style={{
+      height: size,
+      width: size,
+    }} />
+  } else if (content.trim() && !content.match(/^_( |$)/)) {
+    // console.log(content)
+    let style = hidden ? {visibility: 'hidden'} : {}
+    const res = getStyle(content)
+    style = {...style, ...res.style}
+    const text = renderText(res.text)
+    if (hasTheme(node, 'header1')) {
+      body = <Heading key={key} size={1} style={style} children={text} />
+    } else if (hasTheme(node, 'header2')) {
+      body = <Heading key={key} size={2} style={style} children={text} />
+    } else if (hasTheme(node, 'header3')) {
+      body = <Heading key={key} size={3} style={style} children={text} />
+    } else if (content.startsWith('```') && content.endsWith('```')) {
+      content = content.slice(3, -3).replace(/^\n/, '').replace(/\n$/, '');
       let style = {...codePaneStyle}
       if (content.startsWith('#!{')) {
         let lines = content.split('\n')
-        style = JSON.parse(lines[0].slice(2))
+        style = {
+          ...style,
+          ...JSON.parse(lines[0].slice(2))
+        }
         content = lines.slice(1).join('\n')
       }
-      body = <CodePane
+      // TODO how do I override fontSize?
+      body = <CodeHighlighter
         key={key}
         style={style}
         source={content}
-        lang={lang}
+        lang='mllike'
       />
-    } else if (node.type !== 'normal') {
-      console.log('unexpected type', node.type)
-      body = null
-    } else if (content.trim().startsWith('{img} ')) {
-      const {text, style} = getStyle(content.slice('{img} '.length))
-      body = <Image key={key} style={style} width={style.width} height={style.height} src={'assets/' + text.trim()} />
-    } else if (content.trim().startsWith('{spacer:')) {
-      const size = parseInt(content.trim().slice('{spacer:'.length, -1))
-      body = <div key={key} style={{
-        height: size,
-        width: size,
-      }} />
-    } else if (content.trim() && !content.match(/^_( |$)/)) {
-      // console.log(content)
-      let style = hidden ? {visibility: 'hidden'} : {}
-      const res = getStyle(content)
-      style = {...style, ...res.style}
-      const text = renderText(res.text)
-      if (hasTheme(node, 'header1')) {
-        body = <Heading key={key} size={1} style={style} children={text} />
-      } else if (hasTheme(node, 'header2')) {
-        body = <Heading key={key} size={2} style={style} children={text} />
-      } else if (hasTheme(node, 'header3')) {
-        body = <Heading key={key} size={3} style={style} children={text} />
-      } else if (content.startsWith('```') && content.endsWith('```')) {
-        content = content.slice(3, -3).replace(/^\n/, '').replace(/\n$/, '');
-        let style = {...codePaneStyle}
-        if (content.startsWith('#!{')) {
-          let lines = content.split('\n')
-          style = JSON.parse(lines[0].slice(2))
-          content = lines.slice(1).join('\n')
-        }
-        body = <CodePane
-          key={key}
-          style={{}}
-          source={content}
-          lang='mllike'
-        />
 
-      } else {
-        body = <Text key={key} lineHeight={style.lineHeight || 1.5} style={style} children={text} />
-      }
     } else {
-      const res = getStyle(content)
-      body = <Layout
-        key={key}
-        style={[{flexDirection: 'column', ...(hidden ? {visibility: 'hidden'} : {})}, res.style]}
-        children={node.children.map(childContent).reduce(flatten, [])}
-      />
+      body = <Text key={key} lineHeight={style.lineHeight || 1.5} style={style} children={text} />
     }
-    if (appear) {
-      return <Appear key={key + 'appear'} children={body} />
-    }
-    return body
+  } else {
+    const res = getStyle(content)
+    body = <Layout
+      key={key}
+      style={[{flexDirection: 'column', ...(hidden ? {visibility: 'hidden'} : {})}, res.style]}
+      children={node.children.map(childContent).reduce(flatten, [])}
+    />
+  }
+  if (appear) {
+    return <Appear key={key + 'appear'} children={body} />
+  }
+  return body
 };
 
 class Portal extends React.Component {
