@@ -30,6 +30,10 @@ const isDisabled = node => {
   return node.plugins && node.plugins.themes && node.plugins.themes.disabled;
 }
 
+const codePaneStyle = {
+  fontSize: '1.2rem'
+}
+
 const hasTheme = (node, theme) => node.plugins && node.plugins.themes && node.plugins.themes[theme]
 
 export const collectSlideNodes = (root, sectionTitles, collection) => {
@@ -149,21 +153,28 @@ const childContent = node => {
     } else if (node.type === 'list') {
       if (content === '{table}') {
         let children = node.children.filter(child => !isDisabled(child))
+        let header = children[0].content.split('|')
+        let colHeaders = header[0].trim() === ''
         body = <Table
         children={
           [
             <TableRow>
-              {children[0].content.split('|').map(text => {
+              {header.map(text => {
                 return <TableHeaderItem>{text.trim()}</TableHeaderItem>
               })}
             </TableRow>
           ]
           .concat(
-            children.slice(1).map(child => (
-            <TableRow
-              children={child.content.split('|').map(text => <TableItem>{text.trim()}</TableItem>)}
-            />
-        )))}
+            children.slice(1).map(child =>
+              <TableRow
+                children={child.content.split('|').map((text, i) => <TableItem>{
+                  colHeaders && i === 0
+                  ? <strong>{text.trim()}</strong>
+                  : text.trim()
+                }</TableItem>)}
+              />
+            )
+          )}
         />
       } else {
         body = <List
@@ -184,7 +195,7 @@ const childContent = node => {
     } else if (node.type === 'code') {
       console.log(node)
       let lang = node.types.code.language || 'mllike'
-      let style = {}
+      let style = {...codePaneStyle}
       if (content.startsWith('#!{')) {
         let lines = content.split('\n')
         style = JSON.parse(lines[0].slice(2))
@@ -221,15 +232,22 @@ const childContent = node => {
       } else if (hasTheme(node, 'header3')) {
         body = <Heading key={key} size={3} style={style} children={text} />
       } else if (content.startsWith('```') && content.endsWith('```')) {
+        content = content.slice(3, -3).replace(/^\n/, '').replace(/\n$/, '');
+        let style = {...codePaneStyle}
+        if (content.startsWith('#!{')) {
+          let lines = content.split('\n')
+          style = JSON.parse(lines[0].slice(2))
+          content = lines.slice(1).join('\n')
+        }
         body = <CodePane
           key={key}
           style={{}}
-          source={content.slice(3, -3).trim()}
+          source={content}
           lang='mllike'
         />
 
       } else {
-        body = <Text key={key} lineHeight={style.lineHeight} style={style} children={text} />
+        body = <Text key={key} lineHeight={style.lineHeight || 1.5} style={style} children={text} />
       }
     } else {
       const res = getStyle(content)
@@ -284,6 +302,9 @@ export const nodeToSlide = ({node, sectionTitles}) => {
       text = text.slice(3).trim()
     }
     titleText = text
+    if (node.children.length && !(node.children[0].type === 'normal' && node.children[0].content.startsWith('{spacer:'))) {
+      contents.unshift(<div style={{width: 32, height: 32}} />)
+    }
     contents.unshift(<Heading key="title" size={size} style={style}>{text}</Heading>)
   } else if (node.content.slice(2).trim().length) {
     notes.unshift(node.content.slice(2).trim())

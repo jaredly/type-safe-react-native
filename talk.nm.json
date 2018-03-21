@@ -828,21 +828,56 @@
         {
           "_id": null,
           "created": 1521463314072,
-          "modified": 1521463453410,
+          "modified": 1521559119282,
           "completed": null,
           "parent": null,
           "trashed": null,
           "children": [
             {
               "_id": null,
+              "created": 1521559086549,
+              "modified": 1521559095309,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "{spacer: 32}",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
+            {
+              "_id": null,
               "created": 1521463326791,
-              "modified": 1521463337487,
+              "modified": 1521559129983,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
               "content": "Easy to get started",
+              "plugins": {
+                "themes": {
+                  "header2": true,
+                  "header3": false
+                }
+              },
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
+            {
+              "_id": null,
+              "created": 1521559086549,
+              "modified": 1521559096117,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "{spacer: 32}",
               "plugins": {},
               "types": {},
               "views": {},
@@ -851,14 +886,19 @@
             {
               "_id": null,
               "created": 1521463337488,
-              "modified": 1521463343695,
+              "modified": 1521559130614,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
               "content": "Easy to maintain",
-              "plugins": {},
+              "plugins": {
+                "themes": {
+                  "header3": false,
+                  "header2": true
+                }
+              },
               "types": {},
               "views": {},
               "_rev": null
@@ -880,7 +920,7 @@
             }
           ],
           "type": "header",
-          "content": "Goals of Reason",
+          "content": "_ Goals of Reason",
           "plugins": {},
           "types": {},
           "views": {},
@@ -1076,7 +1116,7 @@
             {
               "_id": null,
               "created": 1521458754988,
-              "modified": 1521556075663,
+              "modified": 1521559415017,
               "completed": null,
               "parent": null,
               "trashed": null,
@@ -1088,13 +1128,13 @@
                     {
                       "_id": null,
                       "created": 1521556111372,
-                      "modified": 1521556363136,
+                      "modified": 1521587571979,
                       "completed": null,
                       "parent": null,
                       "trashed": null,
                       "children": [],
                       "type": "normal",
-                      "content": "this is a natural question -- especially because Facebook is behind both flow and Reason.",
+                      "content": "this is a natural question -- especially because Facebook is behind both flow and Reason. -- why are they investing in both?",
                       "plugins": {},
                       "types": {},
                       "views": {},
@@ -1118,13 +1158,13 @@
                     {
                       "_id": null,
                       "created": 1521556405867,
-                      "modified": 1521556469637,
+                      "modified": 1521587563524,
                       "completed": null,
                       "parent": null,
                       "trashed": null,
                       "children": [],
                       "type": "normal",
-                      "content": "Flow & TypeScript, are both startwith with JavaScript, and trying to make it more like a well-typed language -- adding some safety & maintainability.",
+                      "content": "Flow & TypeScript, are both starting with with JavaScript, and trying to make it more like a well-typed language -- adding some safety & maintainability.",
                       "plugins": {},
                       "types": {},
                       "views": {},
@@ -1133,13 +1173,13 @@
                     {
                       "_id": null,
                       "created": 1521556433947,
-                      "modified": 1521556491940,
+                      "modified": 1521587596498,
                       "completed": null,
                       "parent": null,
                       "trashed": null,
                       "children": [],
                       "type": "normal",
-                      "content": "Reason, is starting with OCaml -- a well-typed language with lots of safety & power, and trying to make it more like JavaScript -- more familiar, more accessible to newcomers.",
+                      "content": "Reason, is starting with OCaml -- a well-typed language with lots of safety & power, and trying to make it more like JavaScript -- more familiar, more accessible to newcomers, with a smoother development experience.",
                       "plugins": {},
                       "types": {},
                       "views": {},
@@ -1159,7 +1199,7 @@
                 }
               ],
               "type": "header",
-              "content": "...and not Flow or TypeScript?",
+              "content": "Why Reason and not Flow or TypeScript?",
               "plugins": {},
               "types": {},
               "views": {},
@@ -1503,6 +1543,37 @@
             },
             {
               "_id": null,
+              "created": 1521594343777,
+              "modified": 1521594348765,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [
+                {
+                  "_id": null,
+                  "created": 1521594348753,
+                  "modified": 1521594389719,
+                  "completed": null,
+                  "parent": null,
+                  "trashed": null,
+                  "children": [],
+                  "type": "normal",
+                  "content": "If you're not ready for a whole new language, but you want some types, go with TypeScript or Flow",
+                  "plugins": {},
+                  "types": {},
+                  "views": {},
+                  "_rev": null
+                }
+              ],
+              "type": "header",
+              "content": "TL;DR",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
+            {
+              "_id": null,
               "created": 1521470865600,
               "modified": 1521557847663,
               "completed": null,
@@ -1569,9 +1640,9 @@
             }
           ],
           "completed": null,
-          "content": "...and not Flow or TypeScript?",
+          "content": "Why Reason and not Flow or TypeScript?",
           "created": 1521125392784,
-          "modified": 1521556509051,
+          "modified": 1521594343777,
           "parent": null,
           "plugins": {},
           "trashed": null,
@@ -1586,7 +1657,7 @@
             {
               "_id": null,
               "created": 1521458208362,
-              "modified": 1521458569730,
+              "modified": 1521559402473,
               "completed": null,
               "parent": null,
               "trashed": null,
@@ -1654,7 +1725,7 @@
                 }
               ],
               "type": "header",
-              "content": "...and not Elm?",
+              "content": "Why Reason and not Elm?",
               "plugins": {},
               "types": {},
               "views": {},
@@ -1663,7 +1734,7 @@
             {
               "_id": null,
               "created": 1521458567322,
-              "modified": 1521558288497,
+              "modified": 1521594395295,
               "completed": null,
               "parent": null,
               "trashed": null,
@@ -1822,7 +1893,7 @@
                 {
                   "_id": null,
                   "created": 1521558000522,
-                  "modified": 1521558293136,
+                  "modified": 1521594394096,
                   "completed": null,
                   "parent": null,
                   "trashed": null,
@@ -1845,11 +1916,27 @@
                     {
                       "_id": null,
                       "created": 1521458384157,
-                      "modified": 1521558288497,
+                      "modified": 1521594295371,
                       "completed": null,
                       "parent": null,
                       "trashed": null,
-                      "children": [],
+                      "children": [
+                        {
+                          "_id": null,
+                          "created": 1521594295371,
+                          "modified": 1521594326010,
+                          "completed": null,
+                          "parent": null,
+                          "trashed": null,
+                          "children": [],
+                          "type": "normal",
+                          "content": "If you're ready to go all-in on safety, and willing to put up with some things being more cumbersome, then Elm might be what you're looking for.",
+                          "plugins": {},
+                          "types": {},
+                          "views": {},
+                          "_rev": null
+                        }
+                      ],
                       "type": "normal",
                       "content": "One of Elm's core principles is safety --- which it goes all-in on, to the point that there is no runtime exception system!",
                       "plugins": {},
@@ -1859,7 +1946,7 @@
                     }
                   ],
                   "type": "note",
-                  "content": "Is this a useful slide? probably.",
+                  "content": "",
                   "plugins": {},
                   "types": {},
                   "views": {},
@@ -1872,12 +1959,43 @@
               "types": {},
               "views": {},
               "_rev": null
+            },
+            {
+              "_id": null,
+              "created": 1521594393575,
+              "modified": 1521594400858,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [
+                {
+                  "_id": null,
+                  "created": 1521594400847,
+                  "modified": 1521594423270,
+                  "completed": null,
+                  "parent": null,
+                  "trashed": null,
+                  "children": [],
+                  "type": "normal",
+                  "content": "If you're ready to go all-in on safety, and put up with some things being more cumbersome, check out Elm",
+                  "plugins": {},
+                  "types": {},
+                  "views": {},
+                  "_rev": null
+                }
+              ],
+              "type": "header",
+              "content": "TL;DR",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
             }
           ],
           "completed": null,
-          "content": "...and not Elm?",
+          "content": "Why Reason and not Elm?",
           "created": 1521161012911,
-          "modified": 1521504070014,
+          "modified": 1521594395295,
           "parent": null,
           "plugins": {},
           "trashed": null,
@@ -1989,7 +2107,7 @@
           "completed": null,
           "content": "Why not reason?",
           "created": 1521161018528,
-          "modified": 1521558361702,
+          "modified": 1521592814462,
           "parent": null,
           "plugins": {
             "themes": {
@@ -1997,7 +2115,7 @@
             }
           },
           "trashed": null,
-          "type": "header",
+          "type": "normal",
           "types": {},
           "views": {}
         }
@@ -2036,6 +2154,21 @@
           "_id": null,
           "_rev": null,
           "children": [
+            {
+              "_id": null,
+              "created": 1521593687735,
+              "modified": 1521593690367,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "{spacer: 32}",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
             {
               "_id": null,
               "_rev": null,
@@ -2181,7 +2314,7 @@
           "completed": null,
           "content": "Basic syntax",
           "created": 1521161050955,
-          "modified": 1521558378470,
+          "modified": 1521593687735,
           "parent": null,
           "plugins": {},
           "trashed": null,
@@ -2212,7 +2345,7 @@
           "completed": null,
           "content": "Basic types",
           "created": 1521161222548,
-          "modified": 1521558587244,
+          "modified": 1521592822705,
           "parent": null,
           "plugins": {
             "themes": {
@@ -2220,7 +2353,7 @@
             }
           },
           "trashed": null,
-          "type": "header",
+          "type": "normal",
           "types": {},
           "views": {}
         },
@@ -2228,6 +2361,21 @@
           "_id": null,
           "_rev": null,
           "children": [
+            {
+              "_id": null,
+              "created": 1521593691710,
+              "modified": 1521593693695,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "{spacer: 32}",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
             {
               "_id": null,
               "created": 1521463622926,
@@ -2247,7 +2395,7 @@
           "completed": null,
           "content": "JSX",
           "created": 1521161075191,
-          "modified": 1521558610876,
+          "modified": 1521593691710,
           "parent": null,
           "plugins": {},
           "trashed": null,
@@ -2278,7 +2426,7 @@
           "completed": null,
           "content": "Hmmm I want to motivate more, like showing places where the javascript would be dangerous",
           "created": 1521162538511,
-          "modified": 1521558654226,
+          "modified": 1521592825601,
           "parent": null,
           "plugins": {
             "themes": {
@@ -2287,7 +2435,7 @@
             }
           },
           "trashed": null,
-          "type": "header",
+          "type": "normal",
           "types": {},
           "views": {}
         },
@@ -2332,6 +2480,21 @@
               "children": [
                 {
                   "_id": null,
+                  "created": 1521592835221,
+                  "modified": 1521593740351,
+                  "completed": null,
+                  "parent": null,
+                  "trashed": null,
+                  "children": [],
+                  "type": "normal",
+                  "content": "```\nmodule MyComponent = {\n  let component = ReasonReact.statelessComponent(\"MyComponent\");\n  let make = (~name, children) => {\n    <button onClick=(_evt => Js.log(\"you clicked it!\"))>\n      (str(\"Hello \" ++ name))\n    </button>\n  }\n};\n```",
+                  "plugins": {},
+                  "types": {},
+                  "views": {},
+                  "_rev": null
+                },
+                {
+                  "_id": null,
                   "_rev": null,
                   "children": [
                     {
@@ -2363,9 +2526,9 @@
                 }
               ],
               "completed": null,
-              "content": "Basic (stateless) component",
+              "content": "{3} Basic (stateless) component",
               "created": 1521161181798,
-              "modified": 1521558685542,
+              "modified": 1521593833505,
               "parent": null,
               "plugins": {
                 "themes": {
@@ -2376,6 +2539,37 @@
               "type": "header",
               "types": {},
               "views": {}
+            },
+            {
+              "_id": null,
+              "created": 1521593747542,
+              "modified": 1521593756800,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [
+                {
+                  "_id": null,
+                  "created": 1521593005675,
+                  "modified": 1521593771789,
+                  "completed": null,
+                  "parent": null,
+                  "trashed": null,
+                  "children": [],
+                  "type": "normal",
+                  "content": "```\n<MyComponent name=\"Reactathon\" />\n/** or, in plain Reason **/\nReasonReact.createElement(\n  MyComponent.make(~name=\"Reactathon\", [||])\n)\n```",
+                  "plugins": {},
+                  "types": {},
+                  "views": {},
+                  "_rev": null
+                }
+              ],
+              "type": "header",
+              "content": "{3} Using a component",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
             },
             {
               "_id": null,
@@ -2675,7 +2869,7 @@
           "completed": null,
           "content": "Some react patterns",
           "created": 1521161109532,
-          "modified": 1521558719709,
+          "modified": 1521593756800,
           "parent": null,
           "plugins": {},
           "trashed": null,
