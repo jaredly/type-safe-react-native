@@ -52,6 +52,7 @@ theme.screen.components.quote.fontWeight = '400'
 theme.screen.components.quote.lineHeight = '1.3'
 // theme.screen.components.codePane.pre.minWidth = 'unset'
 theme.screen.components.codePane.pre.fontSize = '1.2rem'
+theme.screen.components.codePane.pre.fontFamily = '"SF Mono"'
 theme.screen.components.code.minWidth = 'unset'
 theme.screen.components.list.color = colors.primary
 theme.screen.components.table.textAlign = 'left'

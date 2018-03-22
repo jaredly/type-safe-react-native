@@ -798,7 +798,7 @@
         {
           "_id": null,
           "created": 1521463314072,
-          "modified": 1521559119282,
+          "modified": 1521738014547,
           "completed": null,
           "parent": null,
           "trashed": null,
@@ -889,9 +889,13 @@
               "_rev": null
             }
           ],
-          "type": "header",
+          "type": "normal",
           "content": "_ Goals of Reason",
-          "plugins": {},
+          "plugins": {
+            "themes": {
+              "disabled": true
+            }
+          },
           "types": {},
           "views": {},
           "_rev": null
@@ -2303,9 +2307,13 @@
           "completed": null,
           "content": "Why Reason and not Elm?",
           "created": 1521161012911,
-          "modified": 1521594395295,
+          "modified": 1521732323705,
           "parent": null,
-          "plugins": {},
+          "plugins": {
+            "themes": {
+              "disabled": false
+            }
+          },
           "trashed": null,
           "type": "header",
           "types": {},
@@ -2939,13 +2947,13 @@
                 {
                   "_id": null,
                   "created": 1521594806014,
-                  "modified": 1521674666339,
+                  "modified": 1521738093496,
                   "completed": null,
                   "parent": null,
                   "trashed": null,
                   "children": [],
                   "type": "normal",
-                  "content": "```\nmodule Counter = {\n  $1type action = Up | Set(int);$\n  let component = ReasonReact.reducerComponent(\"Counter\")\n  let make = (~initialCount, _) => {\n    ...component,\n    initialState: () => initialCount,\n    reduce: $2(action, state) => {\n      ReasonReact.Update(switch action {\n      | Up => state + 1\n      | Set(num) => num\n      })\n    }$,\n    render: self => {\n      <div>\n        (str(\"Count: \" ++ string_of_int(self.state)))\n        <button onClick=(evt => $3self.send(Up)$)>(str(\"+\"))</button>\n        <FancyInput onSubmit=($4num => self.send(Set(num))$) />\n      </div>\n    }\n  }\n}\n```",
+                  "content": "```\nmodule Counter = {\n  $1type action = Up | Reset(int);$\n  let component = ReasonReact.reducerComponent(\"Counter\")\n  let make = (~initialCount, _) => {\n    ...component,\n    initialState: () => initialCount,\n    reduce: $2(action, state) => {\n      ReasonReact.Update(switch action {\n      | Up => state + 1\n      | Reset(num) => num\n      })\n    }$,\n    render: self => {\n      <div>\n        (str(\"Count: \" ++ string_of_int(self.state)))\n        <button onClick=(evt => $3self.send(Up)$)>(str(\"+\"))</button>\n        <FancyInput onSubmit=($4num => self.send(Reset(num))$) />\n      </div>\n    }\n  }\n}\n```",
                   "plugins": {},
                   "types": {},
                   "views": {},
@@ -3584,9 +3592,9 @@
               "_rev": null,
               "children": [],
               "completed": null,
-              "content": "```\n$ npm i --save-dev bs-platform\n$ cat > bsconfig.json\n{\n  \"name\": \"myapp\",\n  \"refmt\": 3,\n  \"sources\": [\"src\"],\n  \"package-specs\": [\n    {\"module\": \"commonjs\", \"in-source\": true}\n  ]\n}\n```",
+              "content": "```\n$ npm i --save-dev bs-platform\n$ cat > bsconfig.json\n{\n  \"name\": \"myapp\",\n  \"refmt\": 3,\n  \"sources\": [\"src\"],\n  \"package-specs\": [\n    {\"module\": \"commonjs\", \"in-source\": true}\n  ]\n}\n$ ./node_modules/.bin/bsb -make-world\n# now all your .re files are compiled to .js files\n```",
               "created": 1521165274538,
-              "modified": 1521558744797,
+              "modified": 1521729262828,
               "parent": null,
               "plugins": {},
               "trashed": null,
@@ -3596,17 +3604,17 @@
             }
           ],
           "completed": null,
-          "content": "Grab bs-platform",
+          "content": "{3} Grab bs-platform",
           "created": 1521165440720,
-          "modified": 1521642444079,
+          "modified": 1521695435116,
           "parent": null,
           "plugins": {
             "themes": {
-              "disabled": true
+              "disabled": false
             }
           },
           "trashed": null,
-          "type": "normal",
+          "type": "header",
           "types": {},
           "views": {}
         },
@@ -3687,13 +3695,13 @@
             {
               "_id": null,
               "created": 1521642468847,
-              "modified": 1521642811020,
+              "modified": 1521729389637,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
-              "content": "```\n/* SomeFile.re */\n$1module MyComponent = {\n  /** **/\n};$\nlet default = ReasonReact.$2wrapReasonForJs$(\n  ~component=MyComponent.component,\n  $3(jsProps) => MyComponent.make(\n    ~name=jsProps##name,\n    ~age=jsProps##age,\n    [||]\n  )$\n);\n\n/* OtherFile.js */\n$4import MyComponent from \"./SomeFile.bs.js\";$\nvar x = <MyComponent name=\"hi\" age={10} />\n```",
+              "content": "```\n/* MyComponent.re */\n$1module MyComponent = {\n  /** **/\n};$\nlet default = ReasonReact.$2wrapReasonForJs$(\n  ~component=MyComponent.component,\n  $3(jsProps) => MyComponent.make(\n    ~name=jsProps##name,\n    ~age=jsProps##age,\n    [||]\n  )$\n);\n\n/* OtherFile.js */\n$4import MyComponent from \"./MyComponent.js\";$\nvar x = <MyComponent name=\"hi\" age={10} />\n```",
               "plugins": {},
               "types": {},
               "views": {},
@@ -3718,13 +3726,13 @@
             {
               "_id": null,
               "created": 1521642894655,
-              "modified": 1521643077163,
+              "modified": 1521729457546,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
-              "content": "```\nmodule MyJavaScriptComponent = {\n  [@bs.module]\n  external myJSReactClass : ReasonReact.reactClass = $1\"./SomeComponent.js\"$;\n  let make = ($2~name: string, ~age: int$, children) =>\n    ReasonReact.wrapJsForReason(\n      ~reactClass=myJSReactClass,\n      ~props=$2{\"name\": name, \"age\": age}$,\n      children\n    );\n}\n```",
+              "content": "```\nmodule MyJavaScriptComponent = {\n  [@bs.module]\n  $1external$ myJSReactClass : ReasonReact.reactClass = $1\"./SomeComponent.js\"$;\n  let make = ($2~name: string, ~age: int$, children) =>\n    ReasonReact.wrapJsForReason(\n      ~reactClass=myJSReactClass,\n      ~props=$2{\"name\": name, \"age\": age}$,\n      children\n    );\n}\n```",
               "plugins": {},
               "types": {},
               "views": {},
@@ -3781,9 +3789,9 @@
               "_rev": null,
               "children": [],
               "completed": null,
-              "content": "https://github.com/reasonml-community/reason-scripts",
+              "content": "github:reasonml-community/reason-scripts",
               "created": 1521167728219,
-              "modified": 1521168080127,
+              "modified": 1521675343036,
               "parent": null,
               "plugins": {},
               "trashed": null,
@@ -3795,11 +3803,15 @@
           "completed": null,
           "content": "If you're starting fresh",
           "created": 1521165429474,
-          "modified": 1521558938120,
+          "modified": 1521738040314,
           "parent": null,
-          "plugins": {},
+          "plugins": {
+            "themes": {
+              "disabled": true
+            }
+          },
           "trashed": null,
-          "type": "header",
+          "type": "normal",
           "types": {},
           "views": {}
         }
@@ -3807,7 +3819,7 @@
       "completed": null,
       "content": "How do I get started?",
       "created": 1521124956865,
-      "modified": 1521642863237,
+      "modified": 1521730218929,
       "parent": null,
       "plugins": {},
       "trashed": null,

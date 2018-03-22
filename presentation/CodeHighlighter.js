@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 
 const background = '#e1e1e1';
 const dx = 3;
-const dy = 7;
+const dy = 5;
 const highlightStyle = `
   background-color: ${background};
   color: black;
