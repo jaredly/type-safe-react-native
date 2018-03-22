@@ -30,8 +30,16 @@ const wrapLines = text => {
     .join('\n')
 }
 
+const rx = /\$(\d)([^\$]+)\$/g
+
+const countHighlights = code => {
+  let x = 0
+  code.replace(rx, (_full, num) => x = Math.max(+num, x));
+  return x
+};
+
 const highlight = (code, activeIndex) => {
-  return code.replace(/\$(\d)([^\$]+)\$/g, (_full, num, match) => {
+  return code.replace(rx, (_full, num, match) => {
     if (num == activeIndex) {
       return wrapLines(match)
     }
@@ -53,25 +61,29 @@ const format = (str) => {
 const cache = {}
 
 const hashCode = string => {
-    if (cache[string]) {
-      return cache[string]
-    }
-    let hash = 0;
-    if (string.length == 0) {
-        return hash;
-    }
-    for (let i = 0; i < string.length; i++) {
-        const char = string.charCodeAt(i);
-        hash = ((hash<<5)-hash)+char;
-        hash = hash & hash; // Convert to 32bit integer
-    }
-    cache[string] = hash
-    return hash;
+  if (cache[string]) {
+    return cache[string]
+  }
+  let hash = 0;
+  if (string.length == 0) {
+      return hash;
+  }
+  for (let i = 0; i < string.length; i++) {
+      const char = string.charCodeAt(i);
+      hash = ((hash<<5)-hash)+char;
+      hash = hash & hash; // Convert to 32bit integer
+  }
+  cache[string] = hash
+  return hash;
 }
 
 export default class CodeHighlighter extends Component {
   state = {
     active: this.getStorageItem() || 0
+  }
+  constructor(props) {
+    super(props)
+    this.highlightCount = countHighlights(props.source)
   }
 
   static contextTypes = {
@@ -124,9 +136,11 @@ export default class CodeHighlighter extends Component {
     let active = null;
 
     if (e.which === 38) {
-      active = prev - 1;
+      active = prev === 0 ? this.highlightCount : Math.max(0, prev - 1);
     } else if (e.which === 40) {
-      active = prev + 1;
+      active = prev >= this.highlightCount ? 0 : prev + 1;
+    } else if (e.key == '0') {
+      active = 0;
     }
 
     if (active !== null) {
