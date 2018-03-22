@@ -94,11 +94,11 @@ export default class Presentation extends React.Component {
             textDecoration: 'none',
           }} href="https://twitter.com/@jaredforsyth">@jaredforsyth</a>
           <div style={{width: '32px'}}/>
-          {/*
+
           <a style={{
             textDecoration: 'none',
-          }} href="https://jaredforsyth.com/reactiveconf-reasonml">jaredforsyth.com/reactiveconf-reasonml</a>
-          */}
+          }} href="https://jaredforsyth.com/type-safe-react">jaredforsyth.com/type-safe-react</a>
+
 
         </div>
       </div>
