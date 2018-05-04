@@ -217,7 +217,7 @@ const childContent = node => {
     body = null
   } else if (content.trim().startsWith('{img} ')) {
     const {text, style} = getStyle(content.slice('{img} '.length))
-    body = <Image key={key} style={style} width={style.width} height={style.height} src={'assets/' + text.trim()} />
+    body = <Image key={key} style={{maxWidth: '100%', ...style}} width={style.width} height={style.height} src={'assets/' + text.trim()} />
   } else if (content.trim().startsWith('{spacer:')) {
     const size = parseInt(content.trim().slice('{spacer:'.length, -1))
     body = <div key={key} style={{
