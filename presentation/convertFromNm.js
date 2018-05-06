@@ -29,7 +29,7 @@ import CodeHighlighter from './CodeHighlighter'
 // const CodeHighlighter = CodePane
 
 const isDisabled = node => {
-  return node.plugins && node.plugins.themes && node.plugins.themes.disabled;
+  return (node.plugins && node.plugins.themes && node.plugins.themes.disabled) || node.trashed;
 }
 
 const codePaneStyle = {

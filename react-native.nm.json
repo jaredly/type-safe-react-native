@@ -387,7 +387,7 @@
     {
       "_id": null,
       "created": 1525365734247,
-      "modified": 1525405996847,
+      "modified": 1525450883317,
       "completed": null,
       "parent": null,
       "trashed": null,
@@ -395,13 +395,13 @@
         {
           "_id": null,
           "created": 1525365755361,
-          "modified": 1525372745309,
+          "modified": 1525450887885,
           "completed": null,
           "parent": null,
           "trashed": null,
           "children": [],
           "type": "header",
-          "content": "Why reason + react native?",
+          "content": "Why Reason + React Native?",
           "plugins": {},
           "types": {},
           "views": {},
@@ -1069,14 +1069,19 @@
             {
               "_id": null,
               "created": 1525403083885,
-              "modified": 1525403087157,
+              "modified": 1525453134752,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
               "content": "!a immutability",
-              "plugins": {},
+              "plugins": {
+                "themes": {
+                  "header2": false,
+                  "header3": true
+                }
+              },
               "types": {},
               "views": {},
               "_rev": null
@@ -1084,14 +1089,19 @@
             {
               "_id": null,
               "created": 1525403087372,
-              "modified": 1525403089781,
+              "modified": 1525453135223,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
               "content": "!a types",
-              "plugins": {},
+              "plugins": {
+                "themes": {
+                  "header2": false,
+                  "header3": true
+                }
+              },
               "types": {},
               "views": {},
               "_rev": null
@@ -1177,14 +1187,18 @@
             {
               "_id": null,
               "created": 1525403397469,
-              "modified": 1525403400021,
+              "modified": 1525453156503,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
               "content": "ease of use",
-              "plugins": {},
+              "plugins": {
+                "themes": {
+                  "header3": true
+                }
+              },
               "types": {},
               "views": {},
               "_rev": null
@@ -1192,14 +1206,18 @@
             {
               "_id": null,
               "created": 1525403400021,
-              "modified": 1525403409436,
+              "modified": 1525453156871,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
               "content": "safety & maintainability",
-              "plugins": {},
+              "plugins": {
+                "themes": {
+                  "header3": true
+                }
+              },
               "types": {},
               "views": {},
               "_rev": null
@@ -1207,14 +1225,18 @@
             {
               "_id": null,
               "created": 1525403409436,
-              "modified": 1525403412516,
+              "modified": 1525453157207,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
               "content": "stability",
-              "plugins": {},
+              "plugins": {
+                "themes": {
+                  "header3": true
+                }
+              },
               "types": {},
               "views": {},
               "_rev": null
@@ -1229,7 +1251,7 @@
         }
       ],
       "type": "header",
-      "content": "Why reason + react native?",
+      "content": "Why Reason + React Native?",
       "plugins": {},
       "types": {},
       "views": {},
@@ -1238,7 +1260,7 @@
     {
       "_id": null,
       "created": 1525365827513,
-      "modified": 1525406210683,
+      "modified": 1525449573183,
       "completed": null,
       "parent": null,
       "trashed": null,
@@ -1445,11 +1467,27 @@
         {
           "_id": null,
           "created": 1525366339042,
-          "modified": 1525366346178,
+          "modified": 1525449099027,
           "completed": null,
           "parent": null,
           "trashed": null,
-          "children": [],
+          "children": [
+            {
+              "_id": null,
+              "created": 1525448721070,
+              "modified": 1525453218909,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "!a ```\n$ $1npm i bs-platform bs-react-native reason-react$\n\n$ cat > $2bsconfig.json$\n{\"name\":\"my-project\",\"refmt\":3,\"sources\":\"src\",\n \"bs-dependencies\": [\"bs-react-native\", \"reason-react\"],\n \"reason\": {\"react-jsx\": true},\n \"package-specs\": {\"module\": \"commonjs\", \"in-source\": true}}\n\n$ $3./node_modules/.bin/bsb -make-world$\n```",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            }
+          ],
           "type": "header",
           "content": "Adding it to a current react-native project",
           "plugins": {},
@@ -1460,13 +1498,75 @@
         {
           "_id": null,
           "created": 1525399373164,
-          "modified": 1525399381268,
+          "modified": 1525449455867,
           "completed": null,
           "parent": null,
           "trashed": null,
-          "children": [],
+          "children": [
+            {
+              "_id": null,
+              "created": 1525449124490,
+              "modified": 1525453250299,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "!a ```\n/* HelloWorld.re */\nopen BsReactNative;\n$1let component = ReasonReact.statelessComponent(\"Hello world\");$\n\n$2let make = (~name, _children) => {$\n  ...component,\n  render: self => $3<View style=Style.(style([\n    backgroundColor(String(\"red\")),\n    padding(Pt(20.)),\n  ]))>\n    <Text value=(\"Hello \" ++ name) />\n  </View>$\n};\n```",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            }
+          ],
           "type": "header",
-          "content": "Exposing a component to javascript",
+          "content": "Exporting a component to JS",
+          "plugins": {},
+          "types": {},
+          "views": {},
+          "_rev": null
+        },
+        {
+          "_id": null,
+          "created": 1525449561776,
+          "modified": 1525449722626,
+          "completed": null,
+          "parent": null,
+          "trashed": null,
+          "children": [
+            {
+              "_id": null,
+              "created": 1525449124490,
+              "modified": 1525453274346,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "```\n/* HelloWorld.re */\nopen BsReactNative;\nlet component = ReasonReact.statelessComponent(\"Hello world\");\n\nlet make = (~name, _children) => {\n  /* ... */\n};\n\nlet default = ReasonReact.wrapReasonForJs(\n  ~component,\n  $1jsProps$ => make(~name=$2jsProps##name$, jsProps##children)\n);\n```",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
+            {
+              "_id": null,
+              "created": 1525449331792,
+              "modified": 1525449571646,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "!a ```\n/* App.js */\nimport HelloWorld from \"./HelloWorld.js\";\n\nexport default () => <HelloWorld name=\"World\" />\n```",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            }
+          ],
+          "type": "header",
+          "content": "Exporting a component to JS",
           "plugins": {},
           "types": {},
           "views": {},
@@ -1475,14 +1575,18 @@
         {
           "_id": null,
           "created": 1525399439801,
-          "modified": 1525399455577,
+          "modified": 1525449075203,
           "completed": null,
           "parent": null,
           "trashed": null,
           "children": [],
-          "type": "header",
+          "type": "normal",
           "content": "ummm maybe I need to showcase reducers as well. although it could go in key differences?",
-          "plugins": {},
+          "plugins": {
+            "themes": {
+              "disabled": true
+            }
+          },
           "types": {},
           "views": {},
           "_rev": null
@@ -1498,7 +1602,7 @@
     {
       "_id": null,
       "created": 1525366401051,
-      "modified": 1525406393572,
+      "modified": 1525450949106,
       "completed": null,
       "parent": null,
       "trashed": null,
@@ -1506,56 +1610,11 @@
         {
           "_id": null,
           "created": 1525366407578,
-          "modified": 1525399577980,
+          "modified": 1525449780520,
           "completed": null,
           "parent": null,
           "trashed": null,
           "children": [
-            {
-              "_id": null,
-              "created": 1525399569899,
-              "modified": 1525399574484,
-              "completed": null,
-              "parent": null,
-              "trashed": null,
-              "children": [],
-              "type": "normal",
-              "content": "Javascrtipt, the good parts",
-              "plugins": {},
-              "types": {},
-              "views": {},
-              "_rev": null
-            },
-            {
-              "_id": null,
-              "created": 1525399574484,
-              "modified": 1525399577980,
-              "completed": null,
-              "parent": null,
-              "trashed": null,
-              "children": [],
-              "type": "normal",
-              "content": "plus some better parts",
-              "plugins": {},
-              "types": {},
-              "views": {},
-              "_rev": null
-            },
-            {
-              "_id": null,
-              "created": 1525399577980,
-              "modified": 1525399583884,
-              "completed": null,
-              "parent": null,
-              "trashed": null,
-              "children": [],
-              "type": "normal",
-              "content": "[screenshot]",
-              "plugins": {},
-              "types": {},
-              "views": {},
-              "_rev": null
-            },
             {
               "_id": null,
               "created": 1525366420107,
@@ -1589,7 +1648,7 @@
             }
           ],
           "type": "header",
-          "content": "Key differences from JavaScript",
+          "content": "{1} Key differences from JavaScript",
           "plugins": {},
           "types": {},
           "views": {},
@@ -1729,13 +1788,13 @@
             {
               "_id": null,
               "created": 1525406503215,
-              "modified": 1525406561393,
+              "modified": 1525449825596,
               "completed": null,
               "parent": null,
               "trashed": null,
               "children": [],
               "type": "normal",
-              "content": "!a ```\nlet isOdd = num => !isEven(num - 1)\nand isEven = num => num == 0 || !isOdd(num - 1)\n```",
+              "content": "!a ```\n/** rec for \"recursive\" **/\nlet rec isOdd = num => !isEven(num - 1)\nand isEven = num => num == 0 || !isOdd(num - 1)\n```",
               "plugins": {},
               "types": {},
               "views": {},
@@ -1744,6 +1803,67 @@
           ],
           "type": "header",
           "content": "Define before use & explicit recursion",
+          "plugins": {},
+          "types": {},
+          "views": {},
+          "_rev": null
+        },
+        {
+          "_id": null,
+          "created": 1525450949106,
+          "modified": 1525451101916,
+          "completed": null,
+          "parent": null,
+          "trashed": null,
+          "children": [
+            {
+              "_id": null,
+              "created": 1525450956602,
+              "modified": 1525451091964,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "!a community size",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
+            {
+              "_id": null,
+              "created": 1525450959594,
+              "modified": 1525451092484,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "!a package availability",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            },
+            {
+              "_id": null,
+              "created": 1525451101916,
+              "modified": 1525451105644,
+              "completed": null,
+              "parent": null,
+              "trashed": null,
+              "children": [],
+              "type": "normal",
+              "content": "!a async/await",
+              "plugins": {},
+              "types": {},
+              "views": {},
+              "_rev": null
+            }
+          ],
+          "type": "header",
+          "content": "Ways that JavaScript is still better",
           "plugins": {},
           "types": {},
           "views": {},
@@ -1760,7 +1880,7 @@
     {
       "_id": null,
       "created": 1525371745039,
-      "modified": 1525399984698,
+      "modified": 1525449881017,
       "completed": null,
       "parent": null,
       "trashed": null,
@@ -1768,13 +1888,13 @@
         {
           "_id": null,
           "created": 1525399984698,
-          "modified": 1525399991938,
+          "modified": 1525450948458,
           "completed": null,
           "parent": null,
           "trashed": null,
           "children": [],
           "type": "header",
-          "content": "The Glorious (Native) Future™",
+          "content": "{1} The Glorious (Native) Future™",
           "plugins": {},
           "types": {},
           "views": {},
@@ -1814,7 +1934,7 @@
         {
           "_id": null,
           "created": 1525371880508,
-          "modified": 1525371892346,
+          "modified": 1525449880337,
           "completed": null,
           "parent": null,
           "trashed": null,
@@ -1868,7 +1988,7 @@
             {
               "_id": null,
               "created": 1525371867971,
-              "modified": 1525371909924,
+              "modified": 1525449859762,
               "completed": null,
               "parent": null,
               "trashed": null,
@@ -1890,7 +2010,7 @@
                 }
               ],
               "type": "header",
-              "content": "Current React-Native Architecture",
+              "content": "{3} Current React-Native Architecture",
               "plugins": {},
               "types": {},
               "views": {},
@@ -1899,7 +2019,7 @@
             {
               "_id": null,
               "created": 1525371892346,
-              "modified": 1525371916188,
+              "modified": 1525449867954,
               "completed": null,
               "parent": null,
               "trashed": null,
@@ -1921,7 +2041,7 @@
                 }
               ],
               "type": "header",
-              "content": "RNRN Architecture",
+              "content": "{3} RNRN Potential Architecture",
               "plugins": {},
               "types": {},
               "views": {},
@@ -1942,12 +2062,73 @@
       "types": {},
       "views": {},
       "_rev": null
+    },
+    {
+      "_id": null,
+      "created": 1525449880009,
+      "modified": 1525450763858,
+      "completed": null,
+      "parent": null,
+      "trashed": null,
+      "children": [
+        {
+          "_id": null,
+          "created": 1525450724267,
+          "modified": 1525450758810,
+          "completed": null,
+          "parent": null,
+          "trashed": null,
+          "children": [],
+          "type": "normal",
+          "content": "Join us on Discord - discord.gg/reasonml",
+          "plugins": {},
+          "types": {},
+          "views": {},
+          "_rev": null
+        },
+        {
+          "_id": null,
+          "created": 1525450758810,
+          "modified": 1525450763858,
+          "completed": null,
+          "parent": null,
+          "trashed": null,
+          "children": [],
+          "type": "normal",
+          "content": "KhanAcademy.org",
+          "plugins": {},
+          "types": {},
+          "views": {},
+          "_rev": null
+        },
+        {
+          "_id": null,
+          "created": 1525450763858,
+          "modified": 1525450769506,
+          "completed": null,
+          "parent": null,
+          "trashed": null,
+          "children": [],
+          "type": "normal",
+          "content": "JaredForsyth.com",
+          "plugins": {},
+          "types": {},
+          "views": {},
+          "_rev": null
+        }
+      ],
+      "type": "header",
+      "content": "Fin!",
+      "plugins": {},
+      "types": {},
+      "views": {},
+      "_rev": null
     }
   ],
   "completed": null,
   "content": "The Slides",
   "created": 1525365490004,
-  "modified": 1525403009096,
+  "modified": 1525449881017,
   "parent": null,
   "plugins": {},
   "trashed": null,

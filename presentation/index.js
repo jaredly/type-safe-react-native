@@ -70,7 +70,7 @@ theme.screen.global.body.color = colors.primary
 export default class Presentation extends React.Component {
   render() {
     const nodes = []
-    convert.collectSlideNodes(require('../react-native.nm.json'), [], nodes)
+    convert.collectSlideNodes(require('../change.nm.json'), [], nodes)
     const slides = nodes.map(convert.nodeToSlide)
     console.log('slides', slides)
     return (
@@ -97,7 +97,7 @@ export default class Presentation extends React.Component {
 
           <a style={{
             textDecoration: 'none',
-          }} href="https://jaredforsyth.com/type-safe-react">jaredforsyth.com/type-safe-react</a>
+          }} href="https://jaredforsyth.com/type-safe-react-native">jaredforsyth.com/type-safe-react-native</a>
 
 
         </div>
