@@ -153,14 +153,14 @@ export default class CodeHighlighter extends Component {
   render() {
     const {style, source, lang, className, ...rest} = this.props
     return <pre className={className + " language-"} {...rest} style={{
+      minWidth: '100%',
+      maxWidth: '800px',
       ...this.props.style,
       textAlign: 'left',
       margin: 'auto',
       fontSize: '1.2rem',
       fontWeight: 'normal',
       fontFamily: 'Montserrat',
-      minWidth: '100%',
-      maxWidth: '800px',
     }}>
       <code
         dangerouslySetInnerHTML={{__html: highlight(format(this.props.source), this.state.active)}}

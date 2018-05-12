@@ -103,3 +103,9 @@ a:visited {
   src: local('Montserrat Italic'), local('Montserrat-Italic'), url('./fonts/Montserrat-Italic.ttf') format('ttf');
 }
 */
+
+p code {
+  background: #eee;
+  border-radius: 5px;
+  padding: 0 6px;
+}

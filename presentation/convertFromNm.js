@@ -98,6 +98,22 @@ const renderText = text => {
       href = 'https://' + href
     }
     return <a href={href}>{text}</a>
+  } else if (text.startsWith('!h ')) {
+    return <span style={{visibility: 'hidden'}}>{text.slice(3)}</span>
+  }
+  const ticks = text.split('`')
+  if (ticks.length === 1) {
+    return text
+  } else {
+    const res = []
+    ticks.forEach((tick, i) => {
+      if (i % 2 == 0) {
+        res.push(tick)
+      } else {
+        res.push(<code key={i}>{tick}</code>)
+      }
+    })
+    return res
   }
   return text
 }
@@ -121,7 +137,12 @@ const childContentText = content => {
     content = content.slice(3)
     hidden = true
   }
-  content = <span>{content}</span>
+  content = renderText(content)
+  if (hidden) {
+    content = <span style={{visibility: 'hidden'}}>{content}</span>
+  } else {
+    content = <span>{content}</span>
+  }
   if (appear) {
     return <Appear children={content} />
   }
@@ -183,7 +204,11 @@ const childContent = node => {
       />
     } else {
       body = <List
+        style={hidden ? {visibility: 'hidden'}: {}}
         children={node.children.map(child => {
+          if (isDisabled(child)) {
+            return null
+          }
           let content = child.content
           let appear = false
           if (content.match(/^\!a /)) {
@@ -191,9 +216,9 @@ const childContent = node => {
             appear = true
           }
           if (appear) {
-            return <Appear><ListItem>{content}</ListItem></Appear>
+            return <Appear><ListItem>{renderText(content)}</ListItem></Appear>
           }
-          return <ListItem>{content}</ListItem>
+          return <ListItem>{renderText(content)}</ListItem>
         })}
       />
     }
