@@ -70,7 +70,7 @@ theme.screen.global.body.color = colors.primary
 export default class Presentation extends React.Component {
   render() {
     const nodes = []
-    convert.collectSlideNodes(require('../change.nm.json'), [], nodes)
+    convert.collectSlideNodes(require('../react-native.nm.json'), [], nodes)
     const slides = nodes.map(convert.nodeToSlide)
     console.log('slides', slides)
     return (
@@ -86,6 +86,7 @@ export default class Presentation extends React.Component {
           position: 'absolute',
           bottom: '16px',
           left: '40px',
+          right: '100px',
           fontSize: '36px',
           display: 'flex',
           flexDirection: 'row',
@@ -98,6 +99,13 @@ export default class Presentation extends React.Component {
           <a style={{
             textDecoration: 'none',
           }} href="https://jaredforsyth.com/afraid-of-change">jaredforsyth.com/afraid-of-change</a>
+          {/* <div style={{flex: 1}}/> */}
+
+          {/* Q&A:
+          <div style={{width: 16}}/>
+          <a style={{
+            textDecoration: 'none',
+          }} href="https://pigeonhole.at/reason">pigeonhole.at/reason</a> */}
 
 
         </div>
