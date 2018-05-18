@@ -240,6 +240,17 @@ const childContent = node => {
   } else if (node.type !== 'normal') {
     console.log('unexpected type', node.type)
     body = null
+  } else if (content.trim().startsWith('{mov} ')) {
+    const {text, style} = getStyle(content.slice('{img} '.length))
+    body = <video
+      autoPlay
+      loop
+      key={key}
+      style={{maxWidth: '100%', ...style}}
+      width={style.width}
+      height={style.height}
+      src={'assets/' + text.trim()}
+    />
   } else if (content.trim().startsWith('{img} ')) {
     const {text, style} = getStyle(content.slice('{img} '.length))
     body = <Image key={key} style={{maxWidth: '100%', ...style}} width={style.width} height={style.height} src={'assets/' + text.trim()} />
